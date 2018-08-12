@@ -1,6 +1,8 @@
 package com.overwatch.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.overwatch.domain.HeroAbility;
@@ -16,4 +18,7 @@ public class HeroAbilityDao {
 		return heroAbilityRepository.save(heroAbility);
 	}
 	
+	public Page<HeroAbility> getAllHerosAbility(Pageable pageable){
+		return heroAbilityRepository.findAll(pageable);
+	}
 }
